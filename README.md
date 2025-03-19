@@ -10,6 +10,9 @@ A **Python** project that uses a **fine-tuned BERT (Bidirectional Encoder Repres
 
 This project utilizes **transfer learning** with BERT, a state-of-the-art NLP model, to classify text with high accuracy. Flask is used to create a web API that allows users to interact with the model through a simple frontend.
 
+# Preview
+![Topic Classifier Preview](topic-classifier-preview.png)
+
 ---
 
 ## **Setup Instructions**  
