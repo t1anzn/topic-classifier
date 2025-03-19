@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Article Topic Classifier</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet"> <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet"> <!-- Roboto Font -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 60%;
+            max-width: 800px;
+            text-align: center;
+        }
+        textarea {
+            font-family: 'Roboto', sans-serif;
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            resize: none; /* Prevent resize */
+            height: 200px; /* Set height for larger input */
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>News Article Topic Classifier</h1>
+        <textarea id="user_input" placeholder="Paste your news article here..."></textarea>
+        <button onclick="predictTopic()">Predict Topic</button>
+
+        <div id="result_box" class="result"></div>
+    </div>
+
+    <script>
+        function predictTopic() {
+            const inputText = document.getElementById('user_input').value;
+
+            // Send POST request to Flask backend with JSON body
+            fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json', // Make sure to set Content-Type header
+                },
+                body: JSON.stringify({ text: inputText }), // Send text as JSON
+            })
+            .then(response => response.json())  // Expect JSON response
+            .then(data => {
+                document.getElementById('result_box').innerHTML = `Predicted Topic: ${data.topic}`; // Update result box
+            })
+            .catch(error => {
+                document.getElementById('result_box').innerHTML = `Error: ${error.message}`;  // Handle errors
+            });
+        }
+    </script>
+</body>
+</html>

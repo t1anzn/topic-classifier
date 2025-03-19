@@ -1,0 +1,24 @@
+# Ignore Python bytecode files
+*.pyc
+*.pyo
+__pycache__/
+
+# Ignore virtual environment folder
+venv/
+
+# Ignore .env files (for environment variables)
+.env
+
+# Ignore model directory (for large pretrained models)
+model/
+
+# Ignore log files
+*.log
+
+# Ignore local configurations or IDE-specific files
+.vscode/
+.idea/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
