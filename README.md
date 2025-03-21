@@ -8,7 +8,7 @@ A **Python** project that uses a **fine-tuned BERT (Bidirectional Encoder Repres
 **A BERT-based deep learning model** processes the text using deep language modeling (DLM) to extract semantic meaning.  
 **The predicted topic** is displayed based on the trained classification categories.  
 
-This project utilizes **transfer learning** with BERT, a state-of-the-art NLP model, to classify text with high accuracy. Flask is used to create a web API that allows users to interact with the model through a simple frontend.
+This project utilizes **transfer learning** with BERT, an NLP model, to classify text with high accuracy. Flask is used to create a web API that allows users to interact with the model through a simple frontend.
 
 # Preview
 ![Topic Classifier Preview](topic-classifier-preview.png)
